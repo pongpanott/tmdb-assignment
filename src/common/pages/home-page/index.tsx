@@ -1,9 +1,11 @@
+import MovieGrid from './movie-grid';
+
 const HomePage = () => {
-	return (
-		<div className="flex flex-col flex-1 items-center justify-center bg-blue-100">
-			<p className="text-[40px] text-blue-700">Welcome to react template</p>
-		</div>
-	);
+  return (
+    <div className='flex flex-col flex-1 items-center justify-center border-4 border-blue-500'>
+      <MovieGrid />
+    </div>
+  );
 };
 
 export default HomePage;
