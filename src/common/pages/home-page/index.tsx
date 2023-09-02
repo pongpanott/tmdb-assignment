@@ -1,9 +1,12 @@
 import MovieGrid from './movie-grid';
+import { useViewModel } from './viewmodel';
 
 const HomePage = () => {
+  const { movies, isLoading } = useViewModel();
+
   return (
-    <div className='flex flex-col flex-1 items-center justify-center border-4 border-blue-500'>
-      <MovieGrid />
+    <div className='p-4 flex-1'>
+      <MovieGrid movies={movies} isLoading={isLoading} />
     </div>
   );
 };

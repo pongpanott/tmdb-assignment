@@ -1,31 +1,37 @@
 import BaseDAO from 'common/service/dao/base.dao';
 import { Movie } from '../movie';
 
-export type MovieResponse = Movie;
+export type MovieResponse = {
+  id: number;
+  title: string;
+  poster_path: string;
+  vote_average: number;
+  release_date: string;
+};
 
 class MovieDAO implements BaseDAO<Movie> {
   private movie;
-
-  private convertMovieScore = () => this.movie.score * 10;
-  private formatReleaseDate = () =>
-    new Date(this.movie.releaseDate).toLocaleDateString('en', {
-      year: 'numeric',
-      month: 'short',
-      day: '2-digit',
-    });
 
   constructor(data: MovieResponse) {
     this.movie = data;
   }
 
+  private convertMovieScore = () => `${this.movie.vote_average * 10}.0 / 100`;
+  private formatReleaseDate = () =>
+    new Date(this.movie.release_date).toLocaleDateString('en', {
+      year: 'numeric',
+      month: 'short',
+      day: '2-digit',
+    });
+
   getBodyJson = () => {
     return {
       id: this.movie.id,
       title: this.movie.title,
-      image: this.movie.image,
+      image: `http://image.tmdb.org/t/p/w500${this.movie.poster_path}`,
       score: this.convertMovieScore(),
       releaseDate: this.formatReleaseDate(),
-    } as Movie;
+    };
   };
 }
 
