@@ -10,7 +10,14 @@ type ButtonProps = BaseComponentProps & {
 
 const Button = ({ className, title, type = 'button', onClick }: ButtonProps) => {
   return (
-    <button type={type} className={cx(className)}>
+    <button
+      type={type}
+      className={cx(
+        className,
+        'px-4 py-3 bg-blue-500 text-base font-semibold hover:bg-blue-800 active:bg-blue-300 text-white',
+      )}
+      onClick={onClick}
+    >
       <p>{title}</p>
     </button>
   );

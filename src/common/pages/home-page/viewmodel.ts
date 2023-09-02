@@ -44,7 +44,7 @@ export const useViewModel = () => {
         setMovies(response.movies);
         setIsLoading(false);
       })
-      .catch((error) => {
+      .catch(() => {
         setIsLoading(false);
       });
   };
@@ -58,7 +58,7 @@ export const useViewModel = () => {
         setMovies(response.movies);
         setIsLoading(false);
       })
-      .catch((error) => {
+      .catch(() => {
         setIsLoading(false);
       });
   };
@@ -69,5 +69,10 @@ export const useViewModel = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return { movies, isLoading, handleSeachInput, searchTerm };
+  return {
+    movies,
+    isLoading,
+    handleSeachInput,
+    searchTerm,
+  };
 };

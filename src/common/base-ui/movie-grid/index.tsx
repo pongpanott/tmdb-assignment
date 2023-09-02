@@ -1,4 +1,3 @@
-import { cx } from '@emotion/css';
 import MovieCard from 'common/base-ui/movie-card';
 import MovieCardLoading from 'common/base-ui/movie-card/loading';
 import { Movie } from 'common/model/movie/movie';
