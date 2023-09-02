@@ -2,6 +2,21 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## How to run this project
+
+1.  Clone this project locally
+
+2.  Insall required dependecies
+
+    > npm install
+
+3.  Set api access token for TMDB api (use your own TMDB api access token) by creating .env file on the root directory of the project and pul this line below
+
+    > REACT_APP_TOKEN=<<you_access_token>>
+
+4.  Run a project
+    > npm start
+
 ## Available Scripts
 
 In the project directory, you can run:
