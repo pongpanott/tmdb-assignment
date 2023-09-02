@@ -1,12 +1,14 @@
 import MovieGrid from './movie-grid';
+import SearchBar from './search-bar';
 import { useViewModel } from './viewmodel';
 
 const HomePage = () => {
-  const { movies, isLoading } = useViewModel();
+  const { movies, isLoading, handleSeachInput, searchTerm } = useViewModel();
 
   return (
-    <div className='p-4 flex-1'>
-      <MovieGrid movies={movies} isLoading={isLoading} />
+    <div className='p-6 flex-1'>
+      <SearchBar handleSeachInput={handleSeachInput} searchTerm={searchTerm} />
+      <MovieGrid movies={movies} isLoading={isLoading} searchTerm={searchTerm} />
     </div>
   );
 };

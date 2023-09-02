@@ -15,9 +15,9 @@ const MovieCard = ({ movie }: MovieCardProps) => {
       <FavoriteButton />
 
       <p className='text-grey-400 text-xs font-bold'>{movie.releaseDate}</p>
-      <p className='text-grey-900 text-lg font-bold line-clamp-2 min-h-[46px]'>{movie.title}</p>
+      <p className='text-grey-900 text-lg font-bold line-clamp-2 min-h-[56px]'>{movie.title}</p>
       <div className='flex items-center gap-x-2'>
-        <ThumbIcon className='w-4 h-4' />
+        <ThumbIcon className='w-4 h-4 text-blue-600' />
         <p className='text-sm'>{movie.score}</p>
       </div>
     </CardWrapper>

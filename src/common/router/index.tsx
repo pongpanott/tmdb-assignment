@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import { Layout } from '../base-ui/layout';
+import Layout from '../base-ui/layout';
 import HomePage from '../pages/home-page';
 import NotFoundPage from '../pages/not-found-page';
 
