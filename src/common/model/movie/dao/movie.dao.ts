@@ -16,7 +16,13 @@ class MovieDAO implements BaseDAO<Movie> {
     this.movie = data;
   }
 
-  private convertMovieScore = () => `${this.movie.vote_average * 10}.0 / 100`;
+  private convertMovieScore = () => {
+    const covertScore = this.movie.vote_average * 10;
+
+    if (covertScore < 100 && covertScore > 0) return `${covertScore.toFixed(1)} / 100`;
+
+    return `${covertScore} / 100`;
+  };
   private formatReleaseDate = () =>
     new Date(this.movie.release_date).toLocaleDateString('en', {
       year: 'numeric',

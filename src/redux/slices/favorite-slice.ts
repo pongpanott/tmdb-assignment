@@ -30,10 +30,12 @@ export const favoriteSlice = createSlice({
 
       if (findItem > -1) {
         if (currentList.length === 1) {
+          saveFavorites([]);
           state.favoriteList = [];
         } else {
           const updatedList = currentList.filter((item) => item.id !== action.payload.id);
 
+          saveFavorites(updatedList);
           state.favoriteList = updatedList;
         }
       }

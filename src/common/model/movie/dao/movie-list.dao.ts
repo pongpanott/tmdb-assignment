@@ -5,7 +5,7 @@ import MovieDAO, { MovieResponse } from './movie.dao';
 export type MoviesListResponse = {
   page: number;
   results: MovieResponse[];
-  total_page: number;
+  total_pages: number;
 };
 
 type MoveListResponseDAO = {
@@ -27,7 +27,7 @@ class MovieListDAO implements BaseDAO<MoveListResponseDAO> {
       movies: this.movies.results.map((item: MovieResponse) => {
         return new MovieDAO({ ...item }).getBodyJson();
       }),
-      totalPage: this.movies.total_page,
+      totalPage: this.movies.total_pages,
     };
   };
 }

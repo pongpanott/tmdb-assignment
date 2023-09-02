@@ -6,9 +6,16 @@ type SearchBarProps = {
   searchTerm: string;
   buttonTitle: string;
   onClick: () => void;
+  isLoading?: boolean;
 };
 
-const SearchBar = ({ handleSeachInput, searchTerm, buttonTitle, onClick }: SearchBarProps) => {
+const SearchBar = ({
+  handleSeachInput,
+  searchTerm,
+  buttonTitle,
+  onClick,
+  isLoading,
+}: SearchBarProps) => {
   return (
     <div className='mt-4 mb-8 md:mb-12 lg:mb-[60px] max-w-[420px] w-full mx-auto'>
       <TextField
