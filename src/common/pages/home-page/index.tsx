@@ -13,6 +13,7 @@ const HomePage = () => {
     handleLoadMoreMovie,
     isLoadingMore,
     isLastPage,
+    handleClearSearch,
   } = useViewModel();
   const navigate = useNavigate();
 
@@ -20,10 +21,10 @@ const HomePage = () => {
     <div className='p-6 flex-1'>
       <SearchBar
         handleSeachInput={handleSeachInput}
+        handleClearSearch={handleClearSearch}
         searchTerm={searchTerm}
         buttonTitle='Favorite movies'
         onClick={() => navigate('favorite')}
-        isLoading={isLoading}
       />
       <MovieGrid movies={movies} isLoading={isLoading} searchTerm={searchTerm} />
 

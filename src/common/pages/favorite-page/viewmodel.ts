@@ -8,9 +8,13 @@ export const useViewModel = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleSeachInput = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const searchInput = e.target.value.trim();
+    const searchInput = e.target.value;
 
     setSearchTerm(searchInput);
+  };
+
+  const handleClearSearch = () => {
+    setSearchTerm('');
   };
 
   const filterMoviesBySearchTerm = () => {
@@ -26,5 +30,6 @@ export const useViewModel = () => {
     setSearchTerm,
     filterMoviesBySearchTerm,
     handleSeachInput,
+    handleClearSearch,
   };
 };

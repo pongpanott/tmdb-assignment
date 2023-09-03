@@ -5,7 +5,8 @@ import SearchBar from 'common/base-ui/search-bar';
 import { useNavigate } from 'react-router-dom';
 
 const FavoritePage = () => {
-  const { searchTerm, filterMoviesBySearchTerm, handleSeachInput } = useViewModel();
+  const { searchTerm, filterMoviesBySearchTerm, handleSeachInput, handleClearSearch } =
+    useViewModel();
   const navigate = useNavigate();
 
   return (
@@ -15,6 +16,7 @@ const FavoritePage = () => {
         searchTerm={searchTerm}
         buttonTitle='All movies'
         onClick={() => navigate('/')}
+        handleClearSearch={handleClearSearch}
       />
       <MovieGrid movies={filterMoviesBySearchTerm()} isLoading={false} searchTerm={searchTerm} />
     </div>

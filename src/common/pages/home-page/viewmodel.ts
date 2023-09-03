@@ -27,7 +27,7 @@ export const useViewModel = () => {
   };
 
   const handleSeachInput = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const searchInput = e.target.value.trim();
+    const searchInput = e.target.value;
     setIsLoading(true);
     setMovies([]);
     setSearchTerm(searchInput);
@@ -44,6 +44,13 @@ export const useViewModel = () => {
     }
   };
 
+  const handleClearSearch = () => {
+    setIsLoading(true);
+    setSearchTerm('');
+
+    fetchMovies(1);
+  };
+
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const debounchMovieSearch = useCallback(debounce(handleMovieSearch, 800), []);
 
@@ -53,7 +60,7 @@ export const useViewModel = () => {
         const response = new MovieListDAO(res).getBodyJson();
 
         setPagination({ page: response.page, totalPage: response.totalPage });
-        setMovies([...movies, ...response.movies]);
+        setMovies(page === 1 ? response.movies : [...movies, ...response.movies]);
         setIsLoading(false);
       })
       .catch(() => {
@@ -67,7 +74,7 @@ export const useViewModel = () => {
         const response = new MovieListDAO(res).getBodyJson();
 
         setPagination({ page: response.page, totalPage: response.totalPage });
-        setMovies([...movies, ...response.movies]);
+        setMovies(page === 1 ? response.movies : [...movies, ...response.movies]);
         setIsLoading(false);
       })
       .catch(() => {
@@ -89,5 +96,6 @@ export const useViewModel = () => {
     handleLoadMoreMovie,
     isLoadingMore,
     isLastPage,
+    handleClearSearch,
   };
 };

@@ -6,7 +6,7 @@ type SearchBarProps = {
   searchTerm: string;
   buttonTitle: string;
   onClick: () => void;
-  isLoading?: boolean;
+  handleClearSearch: () => void;
 };
 
 const SearchBar = ({
@@ -14,7 +14,7 @@ const SearchBar = ({
   searchTerm,
   buttonTitle,
   onClick,
-  isLoading,
+  handleClearSearch,
 }: SearchBarProps) => {
   return (
     <div className='mt-4 mb-8 md:mb-12 lg:mb-[60px] max-w-[420px] w-full mx-auto'>
@@ -22,6 +22,7 @@ const SearchBar = ({
         placeholder='Search for a movie...'
         value={searchTerm}
         onChange={handleSeachInput}
+        handleClearSearch={handleClearSearch}
       />
 
       <Button title={buttonTitle} onClick={onClick} className='mt-4' />
