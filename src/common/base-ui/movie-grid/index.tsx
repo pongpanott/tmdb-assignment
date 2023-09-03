@@ -8,9 +8,10 @@ type MovieGridProps = {
   movies: Movie[];
   isLoading: boolean;
   searchTerm: string;
+  category?: 'all' | 'favorite';
 };
 
-const MovieGrid = ({ movies, isLoading, searchTerm }: MovieGridProps) => {
+const MovieGrid = ({ movies, isLoading, searchTerm, category }: MovieGridProps) => {
   const noMoviesFound = useMemo(() => {
     return !!(movies.length === 0 && searchTerm);
   }, [movies, searchTerm]);
@@ -46,7 +47,11 @@ const MovieGrid = ({ movies, isLoading, searchTerm }: MovieGridProps) => {
   } else {
     return (
       <div className='text-center'>
-        <p className='text-lg text-grey-900'>{`Something wrong!! Can't get movies.`}</p>
+        <p className='text-lg text-grey-900'>
+          {category === 'all'
+            ? `Something wrong!! Can't get movies.`
+            : `Doesn't have favorite movie yet.`}
+        </p>
       </div>
     );
   }
